@@ -6,12 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeForm {
+public class PracticeFormTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -20,6 +19,8 @@ public class PracticeForm {
     @Test
     void fillFormTest(){
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Igor");
         $("#lastName").setValue("Bys");
         $("#userEmail").setValue("igorBys@gmail.com");
@@ -31,11 +32,11 @@ public class PracticeForm {
         $("[role=listbox]").$(byText("18")).click();
         $("#subjectsInput").setValue("Math").pressEnter();
         $("[for=hobbies-checkbox-1]").click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/1.png"));
+        $("#uploadPicture").uploadFromClasspath("1.png");
         $("#currentAddress").setValue("7 Vesennyaya Street, Moscow");
         $("#state").scrollIntoView(true);
         $("#state").click();
-        $("#react-select-3-input").pressEnter();
+        $("#react-select-3-input").setValue("NCR").pressEnter();
         $("#city").click();
         $("#react-select-4-input").pressEnter();
         $("#submit").click();
