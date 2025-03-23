@@ -29,7 +29,7 @@ public class PracticeFormTest {
         $(".react-datepicker__year-select").$(byText("2000")).click();
         $("[role=listbox]").$(byText("18")).click();
         $("#subjectsInput").setValue("Math").pressEnter();
-        $("[for=hobbies-checkbox-1]").click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
         $("#uploadPicture").uploadFromClasspath("1.png");
         $("#currentAddress").setValue("7 Vesennyaya Street, Moscow");
         $("#state").scrollIntoView(true);
