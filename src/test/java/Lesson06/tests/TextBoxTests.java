@@ -1,9 +1,9 @@
-package tests;
+package Lesson06.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.TextBoxFormPage;
+import Lesson06.pages.TextBoxFormPage;
 
 public class TextBoxTests {
 

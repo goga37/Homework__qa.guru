@@ -1,8 +1,8 @@
-package pages;
+package Lesson06.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.CalendarComponent;
-import pages.components.TableResultComponent;
+import Lesson06.pages.components.CalendarComponent;
+import Lesson06.pages.components.TableResultComponent;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;

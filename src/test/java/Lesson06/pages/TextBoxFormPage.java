@@ -1,8 +1,7 @@
-package pages;
+package Lesson06.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebElementCondition;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;

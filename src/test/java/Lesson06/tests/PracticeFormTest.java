@@ -1,11 +1,11 @@
-package tests;
+package Lesson06.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPage;
+import Lesson06.pages.PracticeFormPage;
 
-public class PracticeFormTest2 {
+public class PracticeFormTest {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
