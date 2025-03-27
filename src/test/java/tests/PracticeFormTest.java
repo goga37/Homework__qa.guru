@@ -1,23 +1,16 @@
-package Lesson06.tests;
+package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import Lesson06.pages.PracticeFormPage;
+import pages.PracticeFormPage;
 
-public class PracticeFormTest {
+public class PracticeFormTest extends TestBase {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
 
     @Test
     void fillFormTest() {
         practiceFormPage.openPage()
+                .CloseBanners()
                 .setFirsName("Igor")
                 .setLastName("bys")
                 .setEmail("igorBys@gmail.com")
@@ -46,6 +39,7 @@ public class PracticeFormTest {
     @Test
     void testFillingOnlyRequiredFields() {
         practiceFormPage.openPage()
+                .CloseBanners()
                 .setFirsName("Igor")
                 .setLastName("bys")
                 .setGender("Other")
@@ -59,6 +53,7 @@ public class PracticeFormTest {
 @Test
 void testMissingRequiredField() {
     practiceFormPage.openPage()
+            .CloseBanners()
             .setFirsName("Igor")
             .setLastName("bys")
             .setEmail("igorBys@gmail.com")

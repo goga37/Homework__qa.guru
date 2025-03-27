@@ -1,8 +1,8 @@
-package Lesson06.pages;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import Lesson06.pages.components.CalendarComponent;
-import Lesson06.pages.components.TableResultComponent;
+import pages.components.CalendarComponent;
+import pages.components.TableResultComponent;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class PracticeFormPage {
-    private SelenideElement firsNameInput = $("#firstName"),
+    private final SelenideElement firsNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             genderWrapper = $("#genterWrapper"),
@@ -34,6 +34,11 @@ public class PracticeFormPage {
 
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
+
+        return this;
+    }
+
+    public PracticeFormPage CloseBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
@@ -116,6 +121,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setSubmit() {
+        submit.scrollIntoView(true);
         submit.click();
 
         return this;
