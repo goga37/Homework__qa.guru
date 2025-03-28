@@ -1,7 +1,7 @@
-package tests;
+package lesson7.tests;
 
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPage;
+import lesson7.pages.PracticeFormPage;
 
 public class PracticeFormTest extends TestBase {
 
