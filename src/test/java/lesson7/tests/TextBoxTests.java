@@ -5,19 +5,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import lesson7.pages.TextBoxFormPage;
 
-public class TextBoxTests {
+public class TextBoxTests extends TestBase {
 
     TextBoxFormPage textBoxFormPage = new TextBoxFormPage();
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
 
     @Test
     void fillFormTest() {
         textBoxFormPage.openPage()
+                .CloseBanners()
                 .setUserName("Igor")
                 .setEmail("csdc@bk.ru")
                 .setCurrentAddress("strit 12")
