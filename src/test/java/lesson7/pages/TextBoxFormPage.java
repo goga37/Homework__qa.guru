@@ -26,7 +26,7 @@ public class TextBoxFormPage {
     }
 
 
-    public TextBoxFormPage CloseBanners() {
+    public TextBoxFormPage closeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 

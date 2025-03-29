@@ -3,6 +3,8 @@ package lesson7.tests;
 import org.junit.jupiter.api.Test;
 import lesson7.pages.PracticeFormPage;
 
+import static lesson7.tests.TestData.*;
+
 public class PracticeFormTest extends TestBase {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
@@ -10,62 +12,64 @@ public class PracticeFormTest extends TestBase {
     @Test
     void fillFormTest() {
         practiceFormPage.openPage()
-                .CloseBanners()
-                .setFirsName("Igor")
-                .setLastName("bys")
-                .setEmail("igorBys@gmail.com")
-                .setGender("Other")
-                .setUserNumber("8995892000")
-                .setDateOfBirth("18", "December", "2000")
-                .setSubjects("Math")
-                .setHobbies("Music")
-                .setUploadPicture("1.png")
-                .setCurrentAddress("7 Vesennyaya Street, Moscow")
-                .setState("Haryana")
-                .setCity("Panipat")
+                .closeBanners()
+                .setFirsName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setGender(gender)
+                .setUserNumber(userNumber)
+                .setDateOfBirth(day, month, year)
+                .setSubjects(subjects)
+                .setHobbies(hobbies)
+                .setUploadPicture(uploadPicture)
+                .setCurrentAddress(currentAddress)
+                .setState(state)
+                .setCity(city)
                 .setSubmit()
                 .isResultWindowDisplayed("Thanks for submitting the form")
-                .checkResult("Student Name", "Igor Bys")
-                .checkResult("Student Email", "igorBys@gmail.com")
-                .checkResult("Gender", "Other")
-                .checkResult("Mobile", "8995892000")
-                .checkResult("Date of Birth", "18 December,2000")
-                .checkResult("Subjects", "Maths")
-                .checkResult("Hobbies", "Music")
-                .checkResult("Picture", "1.png")
-                .checkResult("Address", "7 Vesennyaya Street, Moscow")
-                .checkResult("State and City", "Haryana Panipat");
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Student Email", email)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", userNumber)
+                .checkResult("Date of Birth", day + " " + month + "," + year)
+                .checkResult("Subjects", subjects)
+                .checkResult("Hobbies", hobbies)
+                .checkResult("Picture", uploadPicture)
+                .checkResult("Address", currentAddress)
+                .checkResult("State and City", state + " " + city);
     }
+
     @Test
     void testFillingOnlyRequiredFields() {
         practiceFormPage.openPage()
                 .CloseBanners()
-                .setFirsName("Igor")
-                .setLastName("bys")
-                .setGender("Other")
-                .setUserNumber("8995892000")
+                .setFirsName(firstName)
+                .setLastName(lastName)
+                .setGender(gender)
+                .setUserNumber(userNumber)
                 .setSubmit()
                 .isResultWindowDisplayed("Thanks for submitting the form")
-                .checkResult("Student Name", "Igor Bys")
-                .checkResult("Gender", "Other")
-                .checkResult("Mobile", "8995892000");
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", userNumber);
     }
-@Test
-void testMissingRequiredField() {
-    practiceFormPage.openPage()
-            .CloseBanners()
-            .setFirsName("Igor")
-            .setLastName("bys")
-            .setEmail("igorBys@gmail.com")
-            .setGender("Other")
-            .setDateOfBirth("18", "December", "2000")
-            .setSubjects("Math")
-            .setHobbies("Music")
-            .setUploadPicture("1.png")
-            .setCurrentAddress("7 Vesennyaya Street, Moscow")
-            .setState("Haryana")
-            .setCity("Panipat")
-            .setSubmit()
-            .shouldNotSeeModal();
-}
+
+    @Test
+    void testMissingRequiredField() {
+        practiceFormPage.openPage()
+                .CloseBanners()
+                .setFirsName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setGender(gender)
+                .setDateOfBirth(day, month, year)
+                .setSubjects(subjects)
+                .setHobbies(hobbies)
+                .setUploadPicture(uploadPicture)
+                .setCurrentAddress(currentAddress)
+                .setState(state)
+                .setCity(city)
+                .setSubmit()
+                .shouldNotSeeModal();
+    }
 }

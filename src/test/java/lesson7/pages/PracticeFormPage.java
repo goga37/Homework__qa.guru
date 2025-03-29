@@ -4,8 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import lesson7.pages.components.CalendarComponent;
 import lesson7.pages.components.TableResultComponent;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -38,7 +37,7 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage CloseBanners() {
+    public PracticeFormPage closeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
