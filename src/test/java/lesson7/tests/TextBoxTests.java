@@ -1,9 +1,9 @@
 package lesson7.tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import lesson7.pages.TextBoxFormPage;
+
+import static lesson7.tests.TestData.*;
 
 public class TextBoxTests extends TestBase {
 
@@ -13,26 +13,26 @@ public class TextBoxTests extends TestBase {
     @Test
     void fillFormTest() {
         textBoxFormPage.openPage()
-                .CloseBanners()
-                .setUserName("Igor")
-                .setEmail("csdc@bk.ru")
-                .setCurrentAddress("strit 12")
-                .setPermanentAddress("home 47")
+                .closeBanners()
+                .setUserName(firstName)
+                .setEmail(email)
+                .setCurrentAddress(currentAddress)
+                .setPermanentAddress(permanentAddress)
                 .setSubmit()
-                .checkResult("Igor",
-                        "csdc@bk.ru",
-                        "strit 12",
-                        "home 47");
+                .checkResult(firstName,
+                        email,
+                        currentAddress,
+                        permanentAddress);
 
     }
 
     @Test
     void sendInvalidEmailTest() {
         textBoxFormPage.openPage()
-                .setUserName("Igor")
-                .setEmail("csdc")
-                .setCurrentAddress("strit 12")
-                .setPermanentAddress("home 47")
+                .setUserName(firstName)
+                .setEmail(noEmail)
+                .setCurrentAddress(currentAddress)
+                .setPermanentAddress(permanentAddress)
                 .setSubmit()
                 .checkNoResult();
 
