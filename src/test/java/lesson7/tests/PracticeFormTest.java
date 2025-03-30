@@ -3,9 +3,8 @@ package lesson7.tests;
 import org.junit.jupiter.api.Test;
 import lesson7.pages.PracticeFormPage;
 
-import static lesson7.tests.TestData.*;
-
 public class PracticeFormTest extends TestBase {
+    TestData td = new TestData();
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
@@ -13,62 +12,62 @@ public class PracticeFormTest extends TestBase {
     void fillFormTest() {
         practiceFormPage.openPage()
                 .closeBanners()
-                .setFirsName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth(day, month, year)
-                .setSubjects(subjects)
-                .setHobbies(hobbies)
-                .setUploadPicture(uploadPicture)
-                .setCurrentAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
+                .setFirsName(td.firstName)
+                .setLastName(td.lastName)
+                .setEmail(td.email)
+                .setGender(td.gender)
+                .setUserNumber(td.userNumber)
+                .setDateOfBirth(td.day, td.month, td.year)
+                .setSubjects(td.subjects)
+                .setHobbies(td.hobbies)
+                .setUploadPicture(td.uploadPicture)
+                .setCurrentAddress(td.currentAddress)
+                .setState(td.state)
+                .setCity(td.city)
                 .setSubmit()
                 .isResultWindowDisplayed("Thanks for submitting the form")
-                .checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", email)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", day + " " + month + "," + year)
-                .checkResult("Subjects", subjects)
-                .checkResult("Hobbies", hobbies)
-                .checkResult("Picture", uploadPicture)
-                .checkResult("Address", currentAddress)
-                .checkResult("State and City", state + " " + city);
+                .checkResult("Student Name", td.firstName + " " + td.lastName)
+                .checkResult("Student Email", td.email)
+                .checkResult("Gender", td.gender)
+                .checkResult("Mobile", td.userNumber)
+                .checkResult("Date of Birth", td.day + " " + td.month + "," + td.year)
+                .checkResult("Subjects", td.subjects)
+                .checkResult("Hobbies", td.hobbies)
+                .checkResult("Picture", td.uploadPicture)
+                .checkResult("Address", td.currentAddress)
+                .checkResult("State and City", td.state + " " + td.city);
     }
 
     @Test
     void testFillingOnlyRequiredFields() {
         practiceFormPage.openPage()
                 .closeBanners()
-                .setFirsName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setUserNumber(userNumber)
+                .setFirsName(td.firstName)
+                .setLastName(td.lastName)
+                .setGender(td.gender)
+                .setUserNumber(td.userNumber)
                 .setSubmit()
                 .isResultWindowDisplayed("Thanks for submitting the form")
-                .checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber);
+                .checkResult("Student Name", td.firstName + " " + td.lastName)
+                .checkResult("Gender", td.gender)
+                .checkResult("Mobile", td.userNumber);
     }
 
     @Test
     void testMissingRequiredField() {
         practiceFormPage.openPage()
                 .closeBanners()
-                .setFirsName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
-                .setGender(gender)
-                .setDateOfBirth(day, month, year)
-                .setSubjects(subjects)
-                .setHobbies(hobbies)
-                .setUploadPicture(uploadPicture)
-                .setCurrentAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
+                .setFirsName(td.firstName)
+                .setLastName(td.lastName)
+                .setEmail(td.email)
+                .setGender(td.gender)
+                .setDateOfBirth(td.day, td.month, td.year)
+                .setSubjects(td.subjects)
+                .setHobbies(td.hobbies)
+                .setUploadPicture(td.uploadPicture)
+                .setCurrentAddress(td.currentAddress)
+                .setState(td.state)
+                .setCity(td.city)
                 .setSubmit()
                 .shouldNotSeeModal();
     }

@@ -8,11 +8,11 @@ import java.util.Map;
 public class TestData {
     static final Faker faker = new Faker();
 
-    static final String firstName = faker.name().firstName(),
+    String firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             email = faker.internet().emailAddress(),
             gender = faker.options().option("Other", "Female", "Male"),
-            userNumber = faker.numerify("7#########"),
+            userNumber = faker.phoneNumber().subscriberNumber(10),
             day = String.valueOf(faker.number().numberBetween(1, 28)),
             month = faker.options().option(
                     "January", "February", "March", "April", "May", "June",
@@ -29,14 +29,14 @@ public class TestData {
             permanentAddress = faker.address().fullAddress(),
             noEmail = faker.name().firstName();
 
-    static final String state = getRandomState();
-    static final String city = getRandomCityForState(state);
+    String state = getRandomState();
+    String city = getRandomCityForState(state);
 
-    private static String getRandomState() {
+    private String getRandomState() {
         return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
     }
 
-    private static String getRandomCityForState(String state) {
+    private String getRandomCityForState(String state) {
         Map<String, String[]> stateCityMap = new HashMap<>();
         stateCityMap.put("NCR", new String[]{"Delhi", "Gurgaon", "Noida"});
         stateCityMap.put("Uttar Pradesh", new String[]{"Agra", "Lucknow", "Merrut"});
@@ -44,9 +44,5 @@ public class TestData {
         stateCityMap.put("Rajasthan", new String[]{"Jaipur", "Jaiselmer"});
 
         return faker.options().option(stateCityMap.get(state));
-    }
-
-    public static void main(String[] args) {
-        System.out.println(permanentAddress);
     }
 }
