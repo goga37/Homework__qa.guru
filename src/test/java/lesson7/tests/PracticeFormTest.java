@@ -42,7 +42,7 @@ public class PracticeFormTest extends TestBase {
     @Test
     void testFillingOnlyRequiredFields() {
         practiceFormPage.openPage()
-                .CloseBanners()
+                .closeBanners()
                 .setFirsName(firstName)
                 .setLastName(lastName)
                 .setGender(gender)
@@ -57,7 +57,7 @@ public class PracticeFormTest extends TestBase {
     @Test
     void testMissingRequiredField() {
         practiceFormPage.openPage()
-                .CloseBanners()
+                .closeBanners()
                 .setFirsName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
