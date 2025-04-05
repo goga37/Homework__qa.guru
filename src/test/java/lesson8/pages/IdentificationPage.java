@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class IdentificationPage {
     private final SelenideElement menuLang = $(".flag-indicator"),
-            identStatus = $(".left-collapsed");
+            identStatus = $(".left-collapsed"),
+            identificationList = $(".identification__list");
 
     ElementsCollection selectPopup = $$(".custom-select-popup-item__text");
-    ElementsCollection identificationList = $$(".identification__list");
 
     public IdentificationPage changingTheLanguage(String lang) {
         menuLang.click();
@@ -27,8 +27,6 @@ public class IdentificationPage {
     }
 
     public IdentificationPage transfersPage(List<String> value) {
-        SelenideElement identificationList = $(".identification__list");
-
         for (String text : value) {
             identificationList.shouldHave(text(text));
         }
