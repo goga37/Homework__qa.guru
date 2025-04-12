@@ -1,0 +1,10 @@
+{
+  "name": "Earthshaker",
+  "typeOfAttack": "close combat",
+  "attribute": "attribute",
+  "startingAttributes": {
+    "strength": 22,
+    "dexterity": 12,
+    "intelligence": 18
+  }
+}
