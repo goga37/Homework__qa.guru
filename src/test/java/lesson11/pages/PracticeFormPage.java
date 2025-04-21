@@ -106,6 +106,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setState(String value) {
+        $("#state").scrollTo().click();
         state.click();
         stateSelectInput.setValue(value).pressEnter();
 
