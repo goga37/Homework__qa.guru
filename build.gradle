@@ -67,4 +67,8 @@ task property_test(type: Test) {
     }
 }
 
-// gradle property_test -Dbrowser=opera
+task dem_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("dem")
+    }
+}
