@@ -40,8 +40,31 @@ test {
     useJUnitPlatform()
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
 task demoqa_test(type: Test) {
     useJUnitPlatform {
         includeTags("demoqa")
     }
 }
+task property_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("property")
+    }
+}
+
+// gradle property_test -Dbrowser=opera
