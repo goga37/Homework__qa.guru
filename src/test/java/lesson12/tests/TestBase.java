@@ -14,10 +14,10 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browser_version", "127.0");
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
-        Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = System.getProperty("remoteUrl");
         SelenideLogger.addListener("allure", new AllureSelenide());
