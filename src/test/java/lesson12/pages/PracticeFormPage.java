@@ -40,7 +40,8 @@ public class PracticeFormPage {
     public PracticeFormPage closeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#gpt_unit_/21849154601,22343295815/Ad.Plus-300x250_1').remove()");
+        executeJavaScript("$('data-google-query-id=CP_Z_Oee8IwDFe7rEQgdL7Yp3Q').remove()");
+
 
         return this;
     }
