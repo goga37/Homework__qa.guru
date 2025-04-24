@@ -40,6 +40,7 @@ public class PracticeFormPage {
     public PracticeFormPage closeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#gpt_unit_/21849154601,22343295815/Ad.Plus-300x250_1').remove()");
 
         return this;
     }
