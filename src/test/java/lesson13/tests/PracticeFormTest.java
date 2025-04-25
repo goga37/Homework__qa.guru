@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
-@Tag("dem")
+@Tag("demoTg")
 public class PracticeFormTest extends TestBase {
     TestData td = new TestData();
     PracticeFormPage practiceFormPage = new PracticeFormPage();
