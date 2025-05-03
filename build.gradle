@@ -72,3 +72,9 @@ task dem_test(type: Test) {
         includeTags("dem")
     }
 }
+
+task demoTg_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoTg")
+    }
+}
