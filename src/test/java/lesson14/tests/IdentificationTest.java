@@ -177,7 +177,7 @@ public class IdentificationTest extends TestBase {
         step("Загружаем Фото с главным разворотом", () -> {
             identificationPage.setUploadSelfi(td.uploadPicture);
         });
-        step("Загружаем Фото с главным разворотом", () -> {
+        step("Вводим ИНН", () -> {
             identificationPage.setIn("ИНН",td.inn);
         });
         step("Проверяем, что кнопка отправить стала активна", () -> {
