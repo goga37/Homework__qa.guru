@@ -3,7 +3,10 @@ package lesson14.pages;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -17,6 +20,7 @@ public class AuthorizationUserPage {
 
     public AuthorizationUserPage authorizationUser(String authorizationMethod, String login, String pass) {
         open(Configuration.baseUrl);
+        $(".push-confirm").shouldBe(visible, Duration.ofSeconds(10));
         $(".push-confirm").$(byText("Позже")).click();
         $(".cookie-modal").$(byText("Принять")).click();
         authSignIn.click();
